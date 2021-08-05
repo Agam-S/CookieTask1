@@ -14,10 +14,10 @@ function init() {
 
   //=================== Going through the selector ================================
 
-  for (let c in cookies) {
+  for (let cookie in cookies) {
     let newOption: HTMLOptionElement = document.createElement('option');
-    newOption.innerHTML = cookies[c].name;
-    newOption.value = String(cookies.indexOf(cookies[c]));
+    newOption.innerHTML = cookies[cookie].name;
+    newOption.value = String(cookies.indexOf(cookies[cookie]));
     cookieSelector.add(newOption);
   }
 
@@ -55,15 +55,14 @@ init();
 function drawCookies() {
   cookiesDiv.innerHTML = '';
   for (let cookie in cookies) {
-    let cookieDiv: HTMLElement = document.createElement('div');
-    cookieDiv.innerHTML = String(cookies[cookie].chocolateChipNum);
-    cookieDiv.classList.add('cookie');
-    cookieDiv.id = cookies[cookie].name;
-    cookieDiv.setAttribute(
+    let newCookieDiv: HTMLElement = document.createElement('div');
+    newCookieDiv.innerHTML = String(cookies[cookie].chocolateChipNum);
+    newCookieDiv.classList.add('cookie');
+    newCookieDiv.setAttribute(
       'style',
       `background-color: ${cookies[cookie].colour}`
     );
-    cookiesDiv.appendChild(cookieDiv);
+    cookiesDiv.appendChild(newCookieDiv);
   }
 }
 
